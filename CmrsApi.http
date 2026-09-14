@@ -1,0 +1,6 @@
+@CmrsApi_HostAddress = http://localhost:5058
+
+GET {{CmrsApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
