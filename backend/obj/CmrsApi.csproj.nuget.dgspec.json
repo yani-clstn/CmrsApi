@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/strawbrryani/CmrsApi/CmrsApi.csproj": {}
+    "/home/strawbrryani/CmrsApi/backend/CmrsApi.csproj": {}
   },
   "projects": {
-    "/home/strawbrryani/CmrsApi/CmrsApi.csproj": {
+    "/home/strawbrryani/CmrsApi/backend/CmrsApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/strawbrryani/CmrsApi/CmrsApi.csproj",
+        "projectUniqueName": "/home/strawbrryani/CmrsApi/backend/CmrsApi.csproj",
         "projectName": "CmrsApi",
-        "projectPath": "/home/strawbrryani/CmrsApi/CmrsApi.csproj",
+        "projectPath": "/home/strawbrryani/CmrsApi/backend/CmrsApi.csproj",
         "packagesPath": "/home/strawbrryani/.nuget/packages/",
-        "outputPath": "/home/strawbrryani/CmrsApi/obj/",
+        "outputPath": "/home/strawbrryani/CmrsApi/backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/strawbrryani/.nuget/NuGet/NuGet.Config"
