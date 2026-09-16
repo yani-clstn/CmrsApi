@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -14,16 +15,7 @@ function App() {
   return (
     <div>
       {isAuthenticated ? (
-        <div style={{ textAlign: 'center', marginTop: '50px' }}>
-          <h1>Welcome to CMRS</h1>
-          <p>You are logged in!</p>
-          <button 
-            onClick={handleLogout} 
-            style={{ padding: '10px 20px', cursor: 'pointer' }}
-          >
-            Logout
-          </button>
-        </div>
+        <Dashboard onLogout={handleLogout} />
       ) : (
         <Login onLoginSuccess={() => setIsAuthenticated(true)} />
       )}
