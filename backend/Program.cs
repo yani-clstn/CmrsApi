@@ -9,16 +9,32 @@ using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1. Add DB Context
+// ==========================================
+// 1. REGISTER SERVICES
+// ==========================================
+
+// Add DB Context
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// 2. Add Identity
+// Add Identity
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
-// 3. Add Authentication & JWT
+// Add CORS Policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000", "http://localhost:5173")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
+
+// Add Authentication & JWT
 var jwtKey = builder.Configuration["Jwt:Key"]!;
 builder.Services.AddAuthentication(options =>
 {
@@ -42,7 +58,7 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-// 4. Configure Swagger for Microsoft.OpenApi v2.x
+// Configure Swagger for Microsoft.OpenApi v2.x
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "CmrsApi", Version = "v1" });
@@ -70,8 +86,14 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+// ==========================================
+// 2. BUILD THE APP
+// ==========================================
 var app = builder.Build();
 
+// ==========================================
+// 3. CONFIGURE MIDDLEWARE PIPELINE
+// ==========================================
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
@@ -79,6 +101,7 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = "swagger";
 });
 
+app.UseCors("AllowFrontend");
 app.UseAuthentication();
 app.UseAuthorization();
 
