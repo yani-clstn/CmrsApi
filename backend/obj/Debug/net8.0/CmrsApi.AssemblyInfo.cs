@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CmrsApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+67a30bb7c20e23f42b2a95602da6978bfbe71755")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+caad607d6684ab35912d5b59f81cd93b73808751")]
 [assembly: System.Reflection.AssemblyProductAttribute("CmrsApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CmrsApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
